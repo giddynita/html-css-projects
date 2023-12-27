@@ -38,7 +38,7 @@ body {
   font-family: 'Nunito Sans', san-serif;
 }
 .header {
-  padding-block: 25px 50px;
+  padding-block: 25px;
   display: flex;
   align-items: center;
   background-color: white;
@@ -50,6 +50,9 @@ body {
 }
 .header_nav {
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .header_nav_icon {
   border: 2px solid #d3d3d37c;
@@ -58,20 +61,21 @@ body {
   background-color: #ff914d;
   cursor: pointer;
 }
-.header_nav ul {
+.header_nav_list {
   list-style: none;
   display: flex;
-  gap: 20px;
+  flex-flow: row nowrap;
   font-size: 1rem;
+  gap: 20px;
 }
 .menu a:any-link {
   text-decoration: none;
   color: black;
 }
-.header_nav ul li {
+.menu {
   position: relative;
 }
-.header_nav ul li::after {
+.menu::after {
   content: '';
   height: 2px;
   width: 0%;
@@ -81,7 +85,7 @@ body {
   bottom: -3px;
   transition: 0.5s;
 }
-.header_nav ul li:hover::after {
+.menu:hover::after {
   width: 100%;
 }
 .header .button {
@@ -146,6 +150,7 @@ main {
   color: gray;
   list-style: none;
 }
+
 .meals {
   display: grid;
   grid-template-columns: repeat(3, 32.6%);
@@ -158,6 +163,7 @@ main {
 .meals figure img {
   border-radius: 5px;
   width: 100%;
+  height: 300px;
   cursor: default;
 }
 .meals figure img:hover {
@@ -167,7 +173,6 @@ main {
   line-height: 1.3;
   padding-block: 10px 20px;
   font-size: 1.2rem;
-  margin-bottom: 10px;
 }
 .meals figcaption span {
   display: block;
@@ -262,7 +267,6 @@ main {
 .sub_tag h4 {
   font-weight: lighter;
   font-size: 1.5rem;
-  margin-bottom: 18px;
 }
 .contact {
   display: flex;
@@ -356,18 +360,21 @@ main {
   margin-bottom: 20px;
 }
 .line {
-  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 20px;
 }
 .step .line hr {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 15%;
-  width: 85%;
+  width: 90%;
+  height: 1px;
 }
 .step h5 {
-  width: 100%;
+  width: max-content;
   color: #ff914d;
+  word-spacing: 2px;
+  letter-spacing: 2px;
+  white-space: nowrap;
 }
 .step p {
   line-height: 1.5;
@@ -437,6 +444,7 @@ main {
 .recipe-tags a {
   text-decoration: none;
 }
+
 @media screen and (max-width: 576px) {
   .offscreen {
     position: static;
@@ -452,29 +460,39 @@ main {
     position: relative;
     flex-grow: 0;
   }
-  .header_nav ul {
+  .header_nav_list {
     flex-flow: column;
     position: absolute;
     right: 0;
-    top: 80px;
+    top: 50px;
     background-color: white;
     width: 90vw;
-    gap: 0;
     text-align: center;
-    display: none;
+    overflow: hidden;
+    gap: 0px;
+    box-shadow: 0px 2px 0px 0px lightgrey;
+    height: 0px;
   }
-  .header_nav ul li {
+  .menu {
     border-top: 1px solid lightgray;
     width: 90vw;
   }
-  .header_nav ul li a {
+  .menu {
     padding: 20px;
     display: block;
   }
   :is(.header_nav:hover) .header_nav_list {
-    display: flex;
+    height: max-content;
     animation: showMenu 0.5s ease-in forwards;
     transform-origin: top center;
+  }
+  @keyframes hideMenu {
+    0% {
+      transform: scaleY(0);
+    }
+    100% {
+      transform: scaleY(1);
+    }
   }
   @keyframes showMenu {
     0% {
@@ -488,10 +506,10 @@ main {
     background-color: #ff914d;
     color: white;
   }
-  .header_nav ul li:hover::after {
+  .menu:hover::after {
     width: 0%;
   }
-  .header_nav .menu:last-of-type a {
+  .menu:last-of-type a {
     color: white;
     background-color: #ff914d;
     border: none;
@@ -500,9 +518,8 @@ main {
     border-radius: 4px;
     text-decoration: none;
     display: inline-block;
-    margin-top: 14px;
   }
-  .header_nav .menu:last-of-type a:hover {
+  .menu:last-of-type a:hover {
     background-color: hsl(23, 81%, 60%);
   }
   .header .button {
@@ -606,22 +623,21 @@ main {
     position: relative;
     flex-grow: 0;
   }
-  .header_nav ul {
+  .header_nav_list {
     flex-flow: column;
     position: absolute;
     right: 0;
-    top: 80px;
+    top: 50px;
     background-color: white;
     width: 90vw;
     gap: 0;
     text-align: center;
     display: none;
+    box-shadow: 0px 2px 0px 0px lightgrey;
   }
-  .header_nav ul li {
+  .menu {
     border-top: 1px solid lightgray;
     width: 90vw;
-  }
-  .header_nav ul li a {
     padding: 20px;
     display: block;
   }
@@ -642,10 +658,10 @@ main {
     background-color: #ff914d;
     color: white;
   }
-  .header_nav ul li:hover::after {
+  .menu:hover::after {
     width: 0%;
   }
-  .header_nav .menu:last-of-type a {
+  .menu:last-of-type a {
     color: white;
     background-color: #ff914d;
     border: none;
@@ -654,9 +670,8 @@ main {
     border-radius: 4px;
     text-decoration: none;
     display: inline-block;
-    margin-top: 14px;
   }
-  .header_nav .menu:last-of-type a:hover {
+  .menu:last-of-type a:hover {
     background-color: hsl(23, 81%, 60%);
   }
   .header .button {
@@ -675,10 +690,18 @@ main {
     width: 100%;
     margin-top: 50px;
   }
+  .sub_tag {
+    height: max-content;
+  }
   .meals {
     width: 100%;
     order: -1;
     grid-template-columns: 100%;
+  }
+  .meals--width {
+    display: flex;
+    flex-flow: column;
+    padding-top: 1rem;
   }
   .recipe-items .list-items {
     display: flex;
@@ -718,6 +741,7 @@ main {
     width: 100%;
     margin-left: 0;
   }
+
   .recipe {
     flex-flow: column nowrap;
   }
