@@ -1,0 +1,28 @@
+body {
+}
+.form-container {
+  background: url('./asset/bg-image.png'),
+    linear-gradient(to bottom, peachpuff, white);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--white);
+}
+.form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.form-input:focus {
+  outline: 1px solid var(--primary-500);
+}
+.form button {
+  padding: 0.6rem;
+  margin-top: 0.6rem;
+  background-color: var(--primary-500b);
+}
