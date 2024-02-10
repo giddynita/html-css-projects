@@ -1,0 +1,87 @@
+.emoji-container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.emoji {
+  background-color: rgb(250, 224, 76);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+.eyes {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 30%;
+  width: 100%;
+}
+.right-eyes {
+  width: 5px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: black;
+}
+.left-eyes {
+  width: 5px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: black;
+}
+.mouth {
+  position: absolute;
+  width: 55%;
+  height: 20px;
+  background-color: black;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 55%;
+}
+.smile {
+  border-radius: 0 0 30px 30px;
+}
+.surprised {
+  clip-path: circle();
+}
+.center {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: 1px solid gray;
+  z-index: 50;
+  position: relative;
+}
+.strap {
+  width: 50%;
+  height: 5px;
+  border-block: 1px solid gray;
+  position: absolute;
+  background-color: white;
+}
+.top-right {
+  top: 0;
+  right: 90%;
+  transform: rotate(20deg);
+}
+.bottom-right {
+  bottom: 0;
+  right: 90%;
+  transform: rotate(-30deg);
+}
+.top-left {
+  top: 0;
+  left: 90%;
+  transform: rotate(-20deg);
+}
+.bottom-left {
+  bottom: 0;
+  left: 90%;
+  transform: rotate(30deg);
+}
