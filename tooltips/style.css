@@ -1,0 +1,47 @@
+:root {
+  --scale: 0;
+}
+
+.avatar-container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar {
+  width: 100px;
+  height: 100px;
+  background-image: url('./assets/avatar.jpg');
+  background-position: center;
+  border-radius: 50%;
+  position: relative;
+}
+.avatar::after,
+.avatar::before {
+  position: absolute;
+  left: 50%;
+  transition: all 0.3s;
+  transform-origin: bottom center;
+  top: -0.25rem;
+}
+.avatar::before {
+  content: attr(data-tooltips);
+  background-color: green;
+  border-radius: var(--borderRadius);
+  padding: 0.5rem;
+  width: max-content;
+  color: white;
+  transform: translateX(-50%) translateY(calc(-100% - 20px)) scale(var(--scale));
+}
+.avatar::after {
+  content: '';
+  border: 6px solid green;
+  transform: translateX(-50%) translateY(-20px) scale(var(--scale));
+  clip-path: polygon(0% 0%, 40% 100%, 80% 0%);
+  transform-origin: top center;
+}
+.avatar:hover::after,
+.avatar:hover::before {
+  --scale: 1;
+}
