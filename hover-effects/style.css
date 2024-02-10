@@ -1,0 +1,90 @@
+.btns-container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.btns-container button {
+  position: relative;
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+  border: transparent;
+  border-radius: var(--borderRadius);
+  background-color: lightgray;
+  border: 2px solid white;
+  transition: all 0.15s;
+  outline: transparent;
+  overflow: hidden;
+}
+
+.btns-container button:hover:first-of-type {
+  outline: 2px solid lightgray;
+}
+.btns-container button:nth-of-type(2) {
+  z-index: 1;
+}
+.btns-container button:hover:nth-of-type(2) {
+  color: white;
+}
+.btns-container button:nth-of-type(2)::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: var(--primary-500);
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  border-radius: var(--borderRadius);
+}
+.btns-container button:hover:nth-of-type(2)::before {
+  transform: scaleX(1);
+}
+.btns-container button:nth-of-type(3) {
+  z-index: 1;
+  background-color: var(--primary-500);
+}
+.btns-container button:hover:nth-of-type(3) {
+  color: white;
+}
+.btns-container button:nth-of-type(3)::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: lightgray;
+  border-radius: 50%;
+  transition: all 0.3s;
+  z-index: -1;
+  transform: scale(1.5);
+}
+.btns-container button:hover:nth-of-type(3)::before {
+  transform: scale(0);
+}
+.btns-container button:last-of-type {
+  z-index: 1;
+}
+.btns-container button:last-of-type::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-500);
+  width: 100%;
+  height: 10%;
+  transition: all 0.3s;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+.btns-container button:hover:last-of-type::before {
+  transform: scaleX(1);
+}
