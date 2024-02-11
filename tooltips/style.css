@@ -36,9 +36,11 @@
 }
 .avatar::after {
   content: '';
-  border: 6px solid green;
+  height: 0;
+  width: 0;
+  border: 15px solid transparent;
+  border-top-color: green;
   transform: translateX(-50%) translateY(-20px) scale(var(--scale));
-  clip-path: polygon(0% 0%, 40% 100%, 80% 0%);
   transform-origin: top center;
 }
 .avatar:hover::after,
