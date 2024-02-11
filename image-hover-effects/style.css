@@ -1,0 +1,92 @@
+body {
+  background: linear-gradient(to bottom, gray, white, bisque);
+}
+
+.container {
+  width: 90vw;
+  max-width: 900px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin-inline: auto;
+}
+.article {
+  position: relative;
+  overflow: hidden;
+}
+.article figure {
+  margin: initial;
+  overflow: hidden;
+}
+.article img {
+  aspect-ratio: 1/1;
+}
+.article figcaption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease-in-out;
+  border: 1px solid white;
+}
+.article figcaption,
+.article img {
+  transition: all 0.3s ease-in-out;
+}
+.article:hover img {
+  filter: blur(1px);
+}
+.article:first-of-type figcaption {
+  opacity: 0;
+}
+.article:hover:first-of-type figcaption {
+  opacity: 1;
+}
+.article:nth-of-type(2) figcaption {
+  opacity: 0;
+}
+.article:hover:nth-of-type(2) img {
+  transform: scale(1.1);
+}
+.article:hover:nth-of-type(2) figcaption {
+  opacity: 1;
+}
+.article:hover:nth-of-type(2) figcaption {
+  opacity: 1;
+}
+.article:nth-of-type(3) figcaption {
+  transform: translateX(-100%);
+}
+.article:hover:nth-of-type(3) figcaption {
+  transform: translateX(0%);
+}
+.article:nth-of-type(4) figcaption {
+  transform: translateX(100%);
+}
+.article:hover:nth-of-type(4) figcaption {
+  transform: translateX(0%);
+}
+.article:nth-of-type(5) figcaption {
+  transform: translateY(-100%);
+}
+.article:hover:nth-of-type(5) figcaption {
+  transform: translateY(0%);
+}
+.article:nth-of-type(6) figcaption {
+  transform: translateY(100%);
+}
+.article:hover:nth-of-type(6) figcaption {
+  transform: translateY(0%);
+}
+.article:hover:last-of-type img {
+  filter: grayscale(0.5);
+}
+.article:last-of-type figcaption {
+  transform: translateX(-100%);
+}
+.article:hover:last-of-type figcaption {
+  transform: translateX(0%);
+}
