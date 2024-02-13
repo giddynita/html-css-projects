@@ -1,0 +1,140 @@
+:root {
+  --bodyBackground: rgb(180, 180, 180);
+  --toggleOff: white;
+  --toggleOn: hsl(100, 70%, 40%);
+  --backgroundOff: lightgray;
+  --backgroundOn: hsl(100, 70%, 60%);
+}
+body {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  background-color: var(--bodyBackground);
+}
+.toggle {
+  opacity: 0;
+  position: absolute;
+  left: -9000px;
+  top: -9000px;
+}
+label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  color: var(--bodyBackground);
+  border-radius: 1em;
+  cursor: pointer;
+}
+label::before {
+  content: '';
+  transition: all 0.3s ease-in-out;
+
+  border-radius: 1em;
+}
+label::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  content: '';
+  font-size: 0.5em;
+  transition: all 0.3s ease-in-out;
+  color: var(--toggleOff);
+}
+.toggle:checked ~ label::after {
+  content: '\2713';
+  transform: translateX(70%);
+  color: var(--toggleOn);
+}
+.toggle:focus ~ label::before {
+  outline: 1px solid hsla(0, 0%, 0%, 0.342);
+}
+#check1 ~ label::before {
+  width: 3em;
+  height: 1.5em;
+  background-color: var(--backgroundOff);
+}
+#check1 ~ label::after {
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 2em;
+  background-color: var(--toggleOff);
+}
+#check1:checked ~ label::before {
+  background-color: var(--backgroundOn);
+}
+#check1:checked ~ label::after {
+  background-color: var(--toggleOn);
+}
+#check2 ~ label::before {
+  width: 3em;
+  height: 1.5em;
+  --backgroundOff: white;
+  background-color: var(--backgroundOff);
+}
+#check2 ~ label::after {
+  width: 2.5em;
+  height: 2.5em;
+  left: 6%;
+  border-radius: 2em;
+  --toggleOff: lightgray;
+  background-color: var(--toggleOff);
+}
+#check2:checked ~ label::before {
+  --backgroundOn: white;
+  background-color: var(--backgroundOn);
+}
+#check2:checked ~ label::after {
+  transform: translateX(110%);
+  background-color: var(--toggleOn);
+}
+
+#check3 ~ label::before {
+  display: flex;
+  content: 'OFF';
+  font-weight: 600;
+  padding-left: 40%;
+  width: 4.5em;
+  color: var(--toggleOff);
+  height: 2em;
+  --toggleOff: #777;
+  --backgroundOff: rgb(235, 235, 235);
+  background-color: var(--backgroundOff);
+  border: 2px solid #777;
+}
+#check3 ~ label::after {
+  width: 2.5em;
+  height: 2.5em;
+  left: 8%;
+  border-radius: 2em;
+  --toggleOff: #777;
+  background-color: var(--toggleOff);
+}
+#check3:checked ~ label::before {
+  content: 'ON';
+  padding-left: 8%;
+  color: var(--toggleOn);
+  --backgroundOn: rgb(235, 235, 235);
+  background-color: var(--backgroundOn);
+}
+#check3:checked ~ label::after {
+  transform: translateX(200%);
+  background-color: var(--toggleOn);
+}
+
+.toggle:disabled ~ label {
+  color: #777;
+}
+.toggle:disabled ~ label::before {
+  background-color: #ccc;
+}
+.toggle:disabled ~ label::after {
+  background-color: #777;
+}
+.content {
+  display: none;
+}
