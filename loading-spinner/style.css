@@ -1,0 +1,130 @@
+:root {
+  --delay: 0s;
+  --timimg: cubic-bezier(0.5, 0, 0.5, 1);
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  min-height: 100vh;
+  
+  
+}
+.spinner-1 {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.spinner-1 div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  border-top-color:gainsboro;
+  animation: rotate 1.2s var(--timimg) infinite;
+}
+.spinner-1 div:first-child {
+--delay: -0.4s;
+animation-delay: var(--delay) ;
+}
+.spinner-1 div:nth-child(2){
+--delay: -0.3s;
+animation-delay: var(--delay)
+}
+.spinner-1 div:last-child {
+  --delay: -0.2s;
+  animation-delay: var(--delay)
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spinner-2{
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+.spinner-2 div{
+  animation: rotate 1.2s var(--timimg) infinite;  
+  transform-origin: 20px 20px;
+}
+ .spinner-2 div:after{
+  content: '';
+  background-color: rgb(173, 173, 173);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  margin-top: -2px;
+  margin-left: -2px;
+  display: block;
+  position: absolute;
+} 
+.spinner-2 div:first-child {
+  --delay: -0.036s;
+  animation-delay: var(--delay);
+}
+.spinner-2 div:first-child::after {
+  top: 32px;
+  left:33.5px;
+}
+.spinner-2 div:nth-child(2){
+  --delay:  -0.072s ;
+  ;
+  animation-delay: var(--delay);
+
+  }
+.spinner-2 div:nth-child(2)::after{
+  top: 35.5px;
+  left: 29px;
+  }
+.spinner-2 div:nth-child(3){
+  --delay:-0.108s ;
+  animation-delay: var(--delay);
+  }
+.spinner-2 div:nth-child(3)::after{
+  top:38px;
+  left: 23.5px;
+  }
+ .spinner-2 div:nth-child(4){
+  --delay: -0.144s;
+  animation-delay: var(--delay);
+  }
+.spinner-2 div:nth-child(4)::after{
+  top: 38px;
+  left: 17px;
+  } 
+.spinner-2 div:nth-child(5){
+  --delay: -0.18s;
+  animation-delay: var(--delay);
+  }
+.spinner-2 div:nth-child(5)::after{
+  top:  35.5px;
+  left:  11px;
+  }
+.spinner-2 div:nth-child(6){
+  --delay: -0.216s;
+  animation-delay: var(--delay);
+  }
+.spinner-2 div:nth-child(6)::after{
+  top: 32px;
+  left: 7px;
+
+  }
+.spinner-2 div:last-child{
+  --delay: -0.252s;
+  animation-delay: var(--delay);
+  }
+.spinner-2 div:last-child::after{
+   top: 27px;
+  left: 3.5px; 
+  }
