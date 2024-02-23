@@ -1,0 +1,133 @@
+:root {
+    --scale: 0
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    margin-top: 3rem;   
+}
+section {
+    width: 90vw;
+    max-width: var(--max-width);
+}
+section h5 {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 0.5rem;
+}
+section h5 span {
+    color: #000000a1;
+}
+section hr {
+    margin: initial;
+}
+.notification {
+     overflow: hidden; 
+}
+.action-container{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: start;
+    justify-content: center;
+    gap: 1rem;
+    width: 90%;
+    margin: 2rem auto;
+}
+.action-container figure {
+    margin: initial;
+position: relative;
+}
+.img {
+     aspect-ratio: 1/1;
+     width: 30px;
+    border-radius: 50%;
+}
+.action-container figure::before {
+    content: '';
+    position: absolute;
+    background-color: rgba(128, 0, 128, 0.767);
+    width: 1px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: -25rem;
+    bottom: 100%;
+    z-index: -1;
+}
+.action-container div {
+    background-color: white;
+    flex-grow: 1;
+    border-radius: var(--borderRadius);
+    padding: 0.5rem 1rem;
+}
+.action-container .action {
+    display: flex; 
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0;  
+}
+.action p, .action time {
+   margin: 0;
+}
+.action p span { 
+    color: var(--primary-500);
+    font-weight: 600;
+    position: relative;
+    cursor: pointer;
+}
+
+.action p .hover::before, .action p .hover::after {
+    position: absolute;
+    left: 50%;
+    top: -0.5rem;
+    transition: all .3s;
+    transform-origin: bottom center;
+}
+.action p .hover:hover::before, .action p .hover:hover:after{
+    --scale: 1
+}
+.action p .hover::before {
+    content: attr(data-details);
+    width: max-content;
+    background-color: black;
+    color: white;
+    padding-inline: 0.5rem;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(calc(-100% - 2px)) translateX(-50%) scale(var(--scale)) ;
+    border-radius: var(--borderRadius);
+}
+.action p .hover::after{
+    content: '';
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top-color: black;
+    transform: translateY(-2px) translateX(-50%) scale(var(--scale));
+    transform-origin: top center;
+}
+.action p mark {
+    background-color: whitesmoke;
+    color: rgba(128, 0, 128, 0.301);
+    padding: 0.1rem;
+    margin-inline: 0.8rem;
+}
+.action-container .action-desc{
+    margin: initial;
+    margin-block: 0.5rem;
+    background-color: whitesmoke;
+    border-radius: var(--borderRadius);
+    padding: 0.2rem 1rem;
+}
+.action-desc p span {
+    text-decoration: underline;
+    color: rgba(128, 0, 128, 0.301);
+
+}
