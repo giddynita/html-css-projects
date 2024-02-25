@@ -141,8 +141,6 @@ HERO
 }
 .stat-info {
   margin-block: 2rem;
- 
-  
 }
 .stat-info h2 {
     font-weight: 600;
@@ -200,6 +198,9 @@ HERO
        width: 100%;
        margin-top: 0.5rem;
     }
+    .stat-info {
+        margin-block: 4rem;
+      }
 }
 @media (min-width: 1024px) {
     .hero {
@@ -294,6 +295,7 @@ REVIEW
     .review {
         width: 90vw;
         margin-inline: auto;
+       margin-top: 19rem;
     }
     .review h4, .review p {
         max-width: 30rem;
